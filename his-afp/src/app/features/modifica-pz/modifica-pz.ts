@@ -36,6 +36,7 @@ export class ModificaPz {
   patientId = input<string>();
   gestioneRisorse = inject(GestioneRisorse);
   patientManager = inject(PatientManager);
+  submitted = false;
   patientReq = httpResource<APIResponse<PazienteDTO>>(
     () => `${environment.apiUrl}/admissions/${this.patientId()}`,
   );
@@ -134,8 +135,9 @@ export class ModificaPz {
   }
 
   onSubmit() {
+    this.submitted = true;
+
     if (this.paziente.valid) {
-      console.log(this.paziente.value);
       this.patientManager.updatePatientInfo(
         Number(this.patientId()) || -1,
         this.paziente.value.residenza as Pick<PatientAdmission, 'residenza'>,
