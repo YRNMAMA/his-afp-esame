@@ -1,4 +1,15 @@
-<form (submit)="onSubmit()" [formGroup]="paziente">
+<div class="flex flex-col gap-4">
+  <div class="flex items-center justify-between">
+    <div>
+      <h1 class="text-2xl font-semibold">Dettaglio paziente</h1>
+      <p class="text-sm text-gray-600">Aggiorna i dati di residenza e le informazioni sanitarie.</p>
+    </div>
+    @if (patientReq.isLoading()) {
+      <span class="text-sm text-gray-500">Caricamento dati...</span>
+    }
+  </div>
+
+  <form (submit)="onSubmit()" [formGroup]="paziente">
   <div class="flex flex-row flex-wrap gap-8">
     <p-fieldset formGroupName="anagrafica" legend="Dati anagrafici">
       <div class="flex flex-col p-4">
@@ -343,3 +354,4 @@
     />
   </div>
 </form>
+</div>
