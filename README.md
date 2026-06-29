@@ -79,6 +79,8 @@ his-afp
    - **API backend diretta:** `http://localhost:3000`
    - **API gateway:** `http://localhost/api/<endpoint>`
 
+> Nota: il file `backend/.env` è locale e viene ignorato da `.gitignore`. Usa `backend/.env` solo per configurazioni di sviluppo e non committarlo.
+
 # Avvio dei servizi
 
 Per avviare i servizi, eseguire il comando:
@@ -111,6 +113,8 @@ docker-compose up -d --build --no-deps backend
 - **Backend API diretta:** `http://localhost:3000`
 - **Backend API via gateway:** `http://localhost/api/<endpoint>`
 - **Database PostgreSQL:** `localhost:5432` (user: `sio_user`, password: `sio_password`, database: `sio_db`)
+- **Credenziali di esempio:** `medico/1234`, `infermiere/1234`, `amministrativo/1234`
+- **Autenticazione backend:** abilitata in `docker-compose.yml` (`AUTH_ENABLED=true`).
 
 # Test delle API
 
